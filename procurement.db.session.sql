@@ -1,0 +1,1 @@
+SELECT * FROM procurement_db_master_address
