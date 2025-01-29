@@ -1,0 +1,4 @@
+NODE_KEY,BP_ROLE,EMAIL_ADDRESS,PHONE_NUMBER,FAX_NUMBER,WEB_ADDRESS,ADDRESS_GUID_NODE_KEY,BP_ID,COMPANY_NAME
+7554a050-c6ea-426d-ab17-1791fdc70add,1,contact@queenresidence.ca,4161234567,161234568,www.queenresidence.ca,7554a050-c6ea-426d-ab17-1791fdc7dd,1000,Queen Residence Ltd.
+4aad1e3b-a70a-4a26-9521-5990f3519b51,1,info@granvillecomm.ca,6049876543,6049876544,www.granvillecomm.ca,4aad1e3b-a70a-4a26-9521-5990f3519,1001,Granville Commercial Co.
+b62a1a34-19d5-4b55-acd7-1dbebb6a4e7d,1,office@montrealbiz.ca,5145554321,5145554322,www.montrealbiz.ca,b62a1a34-19d5-4b55-acd7-1dbebb6a,1002,Montreal Business Corp.
