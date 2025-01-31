@@ -50,8 +50,6 @@ context master {
 }
 
 context transaction {
-
-
     entity purchaseorder {
         key node_key         : String(50);
             po_id            : String(24);
