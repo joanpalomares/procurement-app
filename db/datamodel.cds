@@ -1,18 +1,24 @@
 namespace procurement.db;
 
-using { cuid, managed } from '@sap/cds/common';
+using {
+    cuid,
+    managed
+} from '@sap/cds/common';
+
+using { procurement.customAspect  } from './customAspect';
+
 
 
 context master {
 
-    entity employee: cuid, managed {
-            firstName    : String(30);
-            lastName     : String(30);
-            gender       : String(10);
-            phoneNumber  : String(10);
-            email        : String(30);
-            currency     : String(3);
-            salaryAmount : Decimal(15, 2);
+    entity employee : cuid, managed {
+        firstName    : String(30);
+        lastName     : String(30);
+        gender       : customAspect.Gender;
+        phoneNumber  : String(10);
+        email        : String(30);
+        currency     : String(3);
+        salaryAmount : Decimal(15, 2);
     }
 
     entity businesspartner {
