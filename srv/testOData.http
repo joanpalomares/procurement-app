@@ -34,6 +34,7 @@ Content-Type: application/json
       "company_name": "Post1 Ca"
 }
 
+
 ### PUT - Update an existing business partner
 PUT http://localhost:4004/odata/v4/Procurement/businesspartner/946fa5e5-e99f-456a-80d0-6d9de58caf6c  HTTP/1.1
 Content-Type: application/json
@@ -42,6 +43,7 @@ Content-Type: application/json
     "email_address": "put@test.ca",
   "phone_number": 6049876000
 }
+
 
 ### Create another new business partner  
 POST http://localhost:4004/odata/v4/Procurement/businesspartner  HTTP/1.1
@@ -58,6 +60,7 @@ Content-Type: application/json
       "company_name": "Post2 Company"
 }
 
+
 ### PATCH - Partially update an existing business partner (only specified fields) 
 PATCH  http://localhost:4004/odata/v4/Procurement/businesspartner/cb32b7f4-2055-4547-a44a-8e84cfc0beec  HTTP/1.1
 Content-Type: application/json
@@ -66,6 +69,7 @@ Content-Type: application/json
     "email_address": "patchcompany@test.ca",
   "phone_number": 6049876111
 }
+
 
 ### Delete an existing business partner  
 DELETE http://localhost:4004/odata/v4/Procurement/businesspartner/cb32b7f4-2055-4547-a44a-8e84cfc0beec HTTP/1.1

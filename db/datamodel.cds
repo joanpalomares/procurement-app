@@ -1,6 +1,20 @@
 namespace procurement.db;
 
+using { cuid, managed } from '@sap/cds/common';
+
+
 context master {
+
+    entity employee: cuid, managed {
+            firstName    : String(30);
+            lastName     : String(30);
+            gender       : String(10);
+            phoneNumber  : String(10);
+            email        : String(30);
+            currency     : String(3);
+            salaryAmount : Decimal(15, 2);
+    }
+
     entity businesspartner {
         key node_key      : String(50);
             bp_role       : Integer;

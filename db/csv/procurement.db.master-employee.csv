@@ -1,0 +1,6 @@
+firstName,lastName,gender,phoneNumber,email,currency,salaryAmount
+Emma,Johnson,F,416234567,emma.johnson@gmail.com,CAD,"55,000"
+Liam,Smith,M,6049876543,liam.smith@gmail.com,CAD,"50,000"
+Olivia,Brown,F,5145557890,olivia.brown@gmail.com,CAD,"45,000"
+Noah,Wilson,M,4037654321,noah.wilson@gmail.com,CAD,"55,000"
+John,Smith,M,6041234560,john.smith@gmail.com,CAD,"30,000"

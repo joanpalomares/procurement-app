@@ -1,6 +1,7 @@
 using { procurement.db.master, procurement.db.transaction } from '../db/datamodel';
 
-service CatalogService @(path: 'Procurement'){
+@path: 'procurement'
+service CatalogService {
     entity businesspartner as projection on master.businesspartner;
     
     entity address as projection on master.address;
@@ -9,4 +10,7 @@ service CatalogService @(path: 'Procurement'){
 
     entity poitems as projection on transaction.poitems;
 
+    entity product as projection on master.product;
+
+     entity employee as projection on master.employee;
 }
