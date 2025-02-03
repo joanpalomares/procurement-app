@@ -5,8 +5,7 @@ using {
     managed
 } from '@sap/cds/common';
 
-using { procurement.customAspect  } from './customAspect';
-
+using {procurement.customAspect} from './customAspect';
 
 
 context master {
@@ -70,7 +69,7 @@ context master {
 }
 
 context transaction {
-    entity purchaseorder {
+    entity purchaseorder : customAspect.Amount {
         key node_key         : String(50);
             po_id            : String(24);
             partner_guid     : Association to one master.businesspartner;
@@ -80,7 +79,7 @@ context transaction {
                                    on items.parent_key = $self;
     }
 
-    entity poitems {
+    entity poitems : customAspect.Amount {
         key node_key     : String(50);
             parent_key   : Association to one purchaseorder;
             po_item_pos  : Integer;

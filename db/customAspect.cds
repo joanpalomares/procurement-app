@@ -1,5 +1,6 @@
 namespace procurement.customAspect;
 
+// type Gender
 type Gender      : String(1) @assert.range enum {
     male    = 'M';
     female  = 'F';
@@ -15,3 +16,13 @@ type phoneNumber : String(30)
 
 type email       : String(255)
 @assert.format: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+
+// type AmountType
+type AmountType  : Decimal(15, 2);
+
+aspect Amount {
+    currency_code : String(4);
+    gross_amount  : AmountType;
+    net_amount    : AmountType;
+    tax_amount    : AmountType;
+}
