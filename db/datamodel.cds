@@ -15,8 +15,8 @@ context master {
         firstName    : String(30);
         lastName     : String(30);
         gender       : customAspect.Gender;
-        phoneNumber  : String(10);
-        email        : String(30);
+        phoneNumber  : customAspect.phoneNumber;
+        email        : customAspect.email;
         currency     : String(3);
         salaryAmount : Decimal(15, 2);
     }
@@ -24,8 +24,8 @@ context master {
     entity businesspartner {
         key node_key      : String(50);
             bp_role       : Integer;
-            email_address : String(50);
-            phone_number  : Integer;
+            email_address : customAspect.email;
+            phone_Number  : customAspect.phoneNumber;
             fax_number    : Integer;
             web_address   : String(100);
             address_guid  : Association to one address;
