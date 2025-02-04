@@ -23,14 +23,26 @@ context master {
     entity businesspartner {
         key node_key      : String(50);
             bp_role       : Integer;
-            email_address : customAspect.email;
+            email_address : String(50);
             phone_Number  : customAspect.phoneNumber;
-            fax_number    : Integer;
+            fax_number    : customAspect.faxNumber;
             web_address   : String(100);
             address_guid  : Association to one address;
-            bp_id         : Integer;
+            bp_id         : String(16);
             company_name  : String(30);
     }
+
+    annotate businesspartner with {
+        node_key      @title: '{i18n>bp_key}';
+        bp_role       @title: '{i18n>bp_role}';
+        email_address @title: '{i18n>email_address}';
+        phone_Number  @title: '{i18n>phone_number}';
+        fax_number    @title: '{i18n>fax_number}';
+        web_address   @title: '{i18n>web_address}';
+        bp_id         @title: '{i18n>bp_id}';
+        company_name  @title: '{i18n>company_name}';
+    }
+
 
     entity address {
         key node_key        : String(50);
