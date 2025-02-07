@@ -88,3 +88,26 @@ Content-Type: application/json
       "currency": "CAD",
       "salaryAmount": "45000"
     }
+
+
+### Retrieve all item view
+GET http://localhost:4004/odata/v4/cdsviewsrv/itemview
+
+
+### test readonly annotation
+GET http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
+
+### add new employee
+POST http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
+Content-Type: application/json
+
+{
+      "firstName": "Lily",
+      "lastName": "Johnson",
+      "gender": "F",
+      "phoneNumber": "5145557000",
+      "email": "lily.johnson@gmail.com",
+      "currency": "CAD",
+      "salaryAmount": "55000"
+}
+

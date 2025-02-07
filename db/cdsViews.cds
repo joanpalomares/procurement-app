@@ -5,16 +5,16 @@ using {
     procurement.db.transaction
 } from './datamodel';
 
-context CDSViews {
-    define view ![PODetails] as
+context cdsview {
+    define view ![podetails] as
         select from transaction.purchaseorder {
             key po_id                             as ![PurchaseOrders],
-                partner_guid.bp_id                as ![VendorID],
-                partner_guid.company_name         as ![companyName],
-                gross_amount                      as ![POGrossAmount],
-                currency_code                     as ![POCurrency],
+                partner_guid.bp_id                as ![Vendorid],
+                partner_guid.company_name         as ![CompanyName],
+                gross_amount                      as ![PoGrossAmount],
+                currency_code                     as ![PoCurrency],
             key items.po_item_pos                 as ![ItemPosition],
-                items.product_guid.product_id     as ![ProductID],
+                items.product_guid.product_id     as ![ProductId],
                 items.product_guid.description    as ![ProductDesc],
                 partner_guid.address_guid.city    as ![City],
                 partner_guid.address_guid.country as ![Country],
@@ -23,7 +23,7 @@ context CDSViews {
         }
 
     // another view
-    define view ![ItemView] as
+    define view ![itemview] as
         select from transaction.poitems {
             key parent_key.partner_guid.node_key as ![Vendor],
                 product_guid.node_key            as ![ProductID],
@@ -34,7 +34,7 @@ context CDSViews {
         }
 
     // using Aggregation
-    define view ProductSum as
+    define view productsum as
         select from master.product as prod {
             key product_id as ![ProductID],
             texts.description as ![Description],
