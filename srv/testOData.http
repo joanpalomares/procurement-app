@@ -94,7 +94,7 @@ Content-Type: application/json
 GET http://localhost:4004/odata/v4/cdsviewsrv/itemview
 
 
-### test readonly annotation
+### test readonly annotation for employee
 GET http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
 
 ### add new employee
@@ -110,4 +110,24 @@ Content-Type: application/json
       "currency": "CAD",
       "salaryAmount": "55000"
 }
+
+### test readonly annotation businesspartner
+GET http://localhost:4004/odata/v4/procurement/businesspartner HTTP/1.1
+
+### add new employee
+POST http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
+Content-Type: application/json
+
+ {
+      "node_key": "d021f6a2-c904-4c59-b497-2aa5fffc0840",
+      "bp_role": 1,
+      "email_address": "info@testcomm.ca",
+      "phone_Number": "6049876543",
+      "fax_number": "6049876544",
+      "web_address": "www.test.ca",
+      "address_guid_node_key": "4aad1e3b-a70a-4a26-9521-5990f3519",
+      "bp_id": "1001",
+      "company_name": "Test Commercial Co."
+    }
+
 
