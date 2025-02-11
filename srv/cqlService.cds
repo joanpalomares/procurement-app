@@ -8,4 +8,7 @@ service NewCQLService {
     @insertonly
     entity insertEmployee as projection on master.employee;
 
+    @updateonly
+    entity updateEmployee as projection on master.employee;
+
 }

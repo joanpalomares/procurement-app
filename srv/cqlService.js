@@ -29,12 +29,12 @@ const NewCQLService = function (srv) {
     srv.on("CREATE", "insertEmployee", async (req) => {
         try {
             const result = await cds.transaction(req).run(
-                INSERT.into(employee).entries(req.data)  
+                INSERT.into(employee).entries(req.data)
             );
 
             // Check if the insertion was successful
             if (result) {
-                return req.data; 
+                return req.data;
             } else {
                 throw req.error(500, "There was an error inserting the record.");
             }
@@ -42,6 +42,29 @@ const NewCQLService = function (srv) {
             throw req.error(500, "An error occurred: " + err.message);
         }
     });
+
+
+    // update table records
+    srv.on("UPDATE", "updateEmployee", async (req) => {
+        try {
+            let returnData = await cds.transaction(req).run(
+                UPDATE(employee)
+                .set({
+                    firstName: req.data.firstName,
+                    lastName: req.data.lastName
+                }).where({ ID:req.data.ID })
+            );
+
+            if (returnData) {
+                return req.data;
+            } else {
+                throw req.error(500, "There was an error updating the record.");
+            } 
+        } catch (err) {
+            throw req.error(500, "An error occured:" + err.message);
+        }
+    })
+
 }
 
 

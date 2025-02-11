@@ -143,3 +143,12 @@ Content-Type: application/json
       "salaryAmount": 55000
 }
 
+
+### update employee
+PUT http://localhost:4004/odata/v4/new-cql/updateEmployee/343576fa-f7be-4b85-afab-1d0e38d19581 HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Olga",
+    "lastName": "Green"
+}
