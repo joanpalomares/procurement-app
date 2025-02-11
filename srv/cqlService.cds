@@ -11,4 +11,7 @@ service NewCQLService {
     @updateonly
     entity updateEmployee as projection on master.employee;
 
+    @deleteonly
+    entity deleteEmployee as projection on master.employee;
+
 }

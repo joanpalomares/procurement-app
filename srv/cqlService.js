@@ -49,19 +49,36 @@ const NewCQLService = function (srv) {
         try {
             let returnData = await cds.transaction(req).run(
                 UPDATE(employee)
-                .set({
-                    firstName: req.data.firstName,
-                    lastName: req.data.lastName
-                }).where({ ID:req.data.ID })
+                    .set({
+                        firstName: req.data.firstName,
+                        lastName: req.data.lastName
+                    }).where({ ID: req.data.ID })
             );
 
             if (returnData) {
                 return req.data;
             } else {
                 throw req.error(500, "There was an error updating the record.");
-            } 
+            }
         } catch (err) {
             throw req.error(500, "An error occured:" + err.message);
+        }
+    })
+
+    // delete table records
+    srv.on("DELETE", "deleteEmployee", async (req) => {
+        try {
+            let returnData = await cds.transaction(req).run(
+                DELETE.from(employee).where(req.data)
+            );
+
+            if (returnData) {
+                return req.data;
+            } else {
+                return req.error(500, "There was an error deleting the record.");
+            }
+        } catch (err) {
+            return req.error(500, "An error occured:" + err.message);
         }
     })
 
