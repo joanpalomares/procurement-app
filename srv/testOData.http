@@ -131,3 +131,15 @@ Content-Type: application/json
     }
 
 
+### insert employee
+POST http://localhost:4004/odata/v4/new-cql/insertEmployee HTTP/1.1
+Content-Type: application/json
+
+{
+     "firstName": "Hailey",
+      "lastName": "Johnson",
+      "gender": "F",
+      "currency": "CAD",
+      "salaryAmount": 55000
+}
+
