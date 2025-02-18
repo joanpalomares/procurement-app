@@ -1,5 +1,5 @@
 ### Retrieve all business partners  
-GET http://localhost:4004/odata/v4/Procurement/businesspartner HTTP/1.1
+GET http://localhost:4004/odata/v4/Procurement/businesspartner 
 
 ### Retrieve a single address record by its key  
 GET http://localhost:4004/odata/v4/Procurement/address/4aad1e3b-a70a-4a26-9521-5990f3519
@@ -20,7 +20,7 @@ GET http://localhost:4004/odata/v4/Procurement/businesspartner/$count
 ### CRUD Operations  
 
 ### Create a new business partner  
-POST http://localhost:4004/odata/v4/Procurement/businesspartner  HTTP/1.1
+POST http://localhost:4004/odata/v4/Procurement/businesspartner  
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 
 
 ### PUT - Update an existing business partner
-PUT http://localhost:4004/odata/v4/Procurement/businesspartner/946fa5e5-e99f-456a-80d0-6d9de58caf6c  HTTP/1.1
+PUT http://localhost:4004/odata/v4/Procurement/businesspartner/946fa5e5-e99f-456a-80d0-6d9de58caf6c 
 Content-Type: application/json
 
 {
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 
 ### Create another new business partner  
-POST http://localhost:4004/odata/v4/Procurement/businesspartner  HTTP/1.1
+POST http://localhost:4004/odata/v4/Procurement/businesspartner  
 Content-Type: application/json
 
 {
@@ -62,7 +62,7 @@ Content-Type: application/json
 
 
 ### PATCH - Partially update an existing business partner (only specified fields) 
-PATCH  http://localhost:4004/odata/v4/Procurement/businesspartner/cb32b7f4-2055-4547-a44a-8e84cfc0beec  HTTP/1.1
+PATCH  http://localhost:4004/odata/v4/Procurement/businesspartner/cb32b7f4-2055-4547-a44a-8e84cfc0beec  
 Content-Type: application/json
 
 {
@@ -72,12 +72,11 @@ Content-Type: application/json
 
 
 ### Delete an existing business partner  
-DELETE http://localhost:4004/odata/v4/Procurement/businesspartner/cb32b7f4-2055-4547-a44a-8e84cfc0beec HTTP/1.1
+DELETE http://localhost:4004/odata/v4/Procurement/businesspartner/cb32b7f4-2055-4547-a44a-8e84cfc0beec 
 
 
 ### Validate custom aspect for gender, email and phone number
-POST http://localhost:4004/odata/v4/Procurement/employee HTTP/1.1
-Content-Type: application/json
+POST http://localhost:4004/odata/v4/Procurement/employee 
 
  {
       "firstName": "John",
@@ -95,10 +94,10 @@ GET http://localhost:4004/odata/v4/cdsviewsrv/itemview
 
 
 ### test readonly annotation for employee
-GET http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
+GET http://localhost:4004/odata/v4/procurement/employee 
 
 ### add new employee
-POST http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
+POST http://localhost:4004/odata/v4/procurement/employee 
 Content-Type: application/json
 
 {
@@ -112,10 +111,10 @@ Content-Type: application/json
 }
 
 ### test readonly annotation businesspartner
-GET http://localhost:4004/odata/v4/procurement/businesspartner HTTP/1.1
+GET http://localhost:4004/odata/v4/procurement/businesspartner 
 
 ### add new employee
-POST http://localhost:4004/odata/v4/procurement/employee HTTP/1.1
+POST http://localhost:4004/odata/v4/procurement/employee 
 Content-Type: application/json
 
  {
@@ -132,7 +131,7 @@ Content-Type: application/json
 
 
 ### insert employee
-POST http://localhost:4004/odata/v4/new-cql/insertEmployee HTTP/1.1
+POST http://localhost:4004/odata/v4/new-cql/insertEmployee 
 Content-Type: application/json
 
 {
@@ -145,7 +144,7 @@ Content-Type: application/json
 
 
 ### update employee
-PUT http://localhost:4004/odata/v4/new-cql/updateEmployee/343576fa-f7be-4b85-afab-1d0e38d19581 HTTP/1.1
+PUT http://localhost:4004/odata/v4/new-cql/updateEmployee/343576fa-f7be-4b85-afab-1d0e38d19581 
 Content-Type: application/json
 
 {
@@ -154,5 +153,13 @@ Content-Type: application/json
 }
 
 ### delete employee
-DELETE http://localhost:4004/odata/v4/new-cql/deleteEmployee/03df022c-0b28-4033-a818-7b0c037d54ed HTTP/1.1
+DELETE http://localhost:4004/odata/v4/new-cql/deleteEmployee/49380867-46b5-419f-8258-14e2f6160e90
 Content-Type: application/json
+
+### increment employee salary
+POST http://localhost:4004/odata/v4/increment/hike
+Content-Type: application/json
+
+{
+   "ID": "083a5ab9-3c0a-427a-9a83-6395b82537f6"
+}

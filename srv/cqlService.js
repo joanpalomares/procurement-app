@@ -1,6 +1,7 @@
 const { error } = require('@sap/cds');
 const { insert } = require('@sap/cds');
 const cds = require('@sap/cds');
+const { data } = require('@sap/cds/lib/dbs/cds-deploy');
 const { message } = require('@sap/cds/lib/log/cds-error');
 const { rewrite } = require('@sap/cds/libx/_runtime/db/generic');
 const { employee } = cds.entities("procurement.db.master");
@@ -28,9 +29,7 @@ const NewCQLService = function (srv) {
     // insert employee data
     srv.on("CREATE", "insertEmployee", async (req) => {
         try {
-            const result = await cds.transaction(req).run(
-                INSERT.into(employee).entries(req.data)
-            );
+            let result = await INSERT.into(employee).entries(req.data);
 
             // Check if the insertion was successful
             if (result) {
@@ -63,24 +62,24 @@ const NewCQLService = function (srv) {
         } catch (err) {
             throw req.error(500, "An error occured:" + err.message);
         }
-    })
+    });
 
     // delete table records
     srv.on("DELETE", "deleteEmployee", async (req) => {
         try {
             let returnData = await cds.transaction(req).run(
-                DELETE.from(employee).where(req.data)
+                DELETE.from(employee).where({ ID: req.data.ID })
             );
 
             if (returnData) {
-                return req.data;
+                return { message: "Employee deleted successfully", data: req.data };
             } else {
-                return req.error(500, "There was an error deleting the record.");
+                return req.error(404, "Employee not found.");
             }
         } catch (err) {
             return req.error(500, "An error occured:" + err.message);
         }
-    })
+    });
 
 }
 
