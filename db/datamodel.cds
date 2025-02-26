@@ -17,7 +17,7 @@ context master {
         phoneNumber  : customAspect.phoneNumber;
         email        : customAspect.email;
         currency     : String(3);
-        salaryAmount : Decimal(15, 2);
+        salaryAmount : Decimal(10,2);
     }
 
     entity businesspartner {
